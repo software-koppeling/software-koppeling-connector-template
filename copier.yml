@@ -1,8 +1,7 @@
 _min_copier_version: "9.0.0"
 _templates_suffix: ".jinja2"
-_answers_file: ".copier-answers.yml"
 _tasks:
-  - "uv sync"
+- "uv sync"
 
 package_name:
   type: str
