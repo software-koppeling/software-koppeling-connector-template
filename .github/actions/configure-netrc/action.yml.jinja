@@ -1,3 +1,5 @@
+{% raw %}
+
 name: Configure netrc for private repo
 description: Create ~/.netrc entry for repo.software-koppeling.nl using provided credentials.
 inputs:
@@ -16,3 +18,5 @@ runs:
         printf 'machine repo.software-koppeling.nl\n  login %s\n  password %s\n' \
           "${{ inputs.username }}" "${{ inputs.password }}" >> ~/.netrc
         chmod 600 ~/.netrc
+
+{% endraw %}
