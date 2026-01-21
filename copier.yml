@@ -1,5 +1,4 @@
 _min_copier_version: "9.0.0"
-_templates_suffix: ".jinja2"
 _tasks:
 - "uv sync"
 
@@ -17,11 +16,11 @@ version:
 
 author_name:
   type: str
-  default: "MichaelPHolstein"
+  default: "Michael H."
 
 author_email:
   type: str
-  default: "holsteinmp@gmail.com"
+  default: "info@software-koppeling.nl"
 
 python_requires:
   type: str
