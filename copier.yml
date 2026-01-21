@@ -2,7 +2,7 @@ _min_copier_version: "9.0.0"
 _templates_suffix: ".jinja"
 _answers_file: ".copier-answers.yml"
 _tasks:
-  - "uv sync"
+- "uv sync"
 
 package_name:
   type: str
@@ -36,9 +36,9 @@ connector_interface:
   type: str
   default: "AccountingConnectorInterface"
   choices:
-    - "AccountingConnectorInterface"
-    - "EcommerceConnectorInterface"
+  - "AccountingConnectorInterface"
+  - "EcommerceConnectorInterface"
 
 auth_class_name:
   type: str
-  help: "Python class name for auth parameters schema (e.g. MoneybirdAuthParamsSchema)."
+  help: "Python class name for auth class (e.g. MoneybirdAuth)."
