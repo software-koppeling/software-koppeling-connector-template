@@ -1,0 +1,199 @@
+# RUFF DOCUMENTATION: https://docs.astral.sh/ruff/configuration/
+# RUFF LINTING RULES: https://docs.astral.sh/ruff/rules/
+
+# RUFF LINTING COMMAND
+# ruff check ./api --config ./ruff.toml --output-format=full --exclude=alembic --no-cache
+
+# RUFF FORMATTING COMMAND
+# ruff format ./api --config ./ruff.toml --exclude=alembic --no-cache 
+
+# Exclude a variety of commonly ignored directories.
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".ipynb_checkpoints",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pyenv",
+    ".pytest_cache",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    ".vscode",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "site-packages",
+    "venv",
+]
+
+extend-exclude = ["src/software_koppeling_api/alembic"]
+
+fix = true
+indent-width = 4
+line-length = 120
+
+# Assume Python 3.11 or higher.
+target-version = "py311"
+
+[lint]
+
+ignore = [
+    "B008",    # Do not perform function call {name} in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+    "B904",    # Within an `except` clause, raise exceptions with `raise ... from err` or `raise ... from None` to distinguish them from errors in exception handling
+    "C901",    # {fuction} is too complex
+    "COM812",  # Trailing comma missing
+    "D100",    # Missing docstring in public module
+    "D101",    # Missing docstring in public class
+    "D102",    # Missing docstring in public method
+    "D103",    # Missing docstring in public function
+    "D104",    # Missing docstring in public package
+    "D105",    # Missing docstring in magic method
+    "D106",    # Missing docstring in public nested class
+    "D107",    # Missing docstring in __init__
+    "D202",    # No blank lines allowed after function docstring
+    "D203",    # 1 blank line required before class docstring
+    "D205",    # 1 blank line required between summary line and description
+    "D206",    # Docstring should be indented with spaces, not tabs
+    "D212",    # Multi-line docstring summary should start at the first line
+    "D300",    # Use """triple double quotes""" (not '''triple single quotes''')
+    "D401",    # First line of docstring should be in imperative mood
+    "D404",    # First word of the docstring should not be "This"
+    "D407",    # Missing dashed underline after section
+    "D415",    # First line should end with a period, question mark, or exclamation point
+    "D417",    # Missing argument descriptions in the docstring
+    "E111",    # Indentation is not a multiple of four
+    "E114",    # Indentation is not a multiple of four (comment)
+    "E117",    # Over-indented
+    "E501",    # Line too long (Disabled to prevent issues with long f-strings)
+    "FBT001",  # Boolean-typed positional argument in function definition
+    "FBT002",  # Boolean default positional argument in function definition
+    "I001",    # Import block is unsorted or unformatted
+    "ISC001",  # Import alias does not rename original package
+    "ISC002",  # Import alias is same as original package
+    "N806",    # Variable {variable} in function should be lowercase
+    "N812",    # Lowercase {name} imported as non-lowercase {asname}
+    "PERF203", # `try`-`except` within a loop incurs performance overhead
+    "PLR0911", # Too many return statements
+    "PLR0912", # Too many branches
+    "PLR0913", # Too many arguments in function definition
+    "PLR0915", # Too many statements
+    "PTH123",  # `open()` should be replaced by `Path.open()`
+    "Q000",    # Single quotes found but double quotes preferred
+    "Q001",    # Single quote multiline found but double quotes preferred
+    "Q002",    # Single quote docstring found but double quotes preferred
+    "Q003",    # Change outer quotes to avoid escaping inner quotes
+    "RUF027",  # Possible f-string without an 'f' prefix
+    "W191",    # Indentation contains tabs
+    "W291",    # Trailing whitespace
+    "W293",    # Blank line contains whitespace,
+    "FAST002", # FastAPI dependency without `Annotated`RuffFAST002
+]
+
+per-file-ignores = { "tests/**" = [
+    "ARG002",  # Unused function argument
+    "B017",    # {assertion}({exception}) should be considered evil
+    "PLR2004", # Magic value used in comparison, consider replacing {value} with a constant variable
+    "S101",    # Use of `assert` detected
+    "S105",    # Possible hardcoded password assigned to: {variable}
+    "S106",    # Possible hardcoded password assigned to argument: {argument}
+    "S311",    # Standard pseudo-random generators are not suitable for cryptographic purposes
+], "**/repo*/**" = [
+    "E712",    # Avoid equality comparisons to True; use if {cond}: for truth checks
+    "PERF401", # Use a list comprehension to create a transformed list
+], "**/services/**" = [
+    "E712", # Avoid equality comparisons to True; use if {cond}: for truth checks
+], "**/schemas/**" = [
+    "S105", # Possible hardcoded password assigned to: {variable}
+    "N805", # First argument of a method should be named `self`
+], "**/invoice/reseller.py" = [
+    "E712", # Avoid equality comparisons to True; use if {cond}: for truth checks
+], "**/cli.py" = [
+    "FBT003", # Boolean-typed positional argument in function definition
+    "UP007",  # About  X | None annotation, current prod version of typer (debian version) does not support this yet.
+] }
+
+
+select = [
+    "A",     # Flake8-builtins
+    "ARG",   # Flake8-Unused-Arguments
+    "ASYNC", # Flake8-async
+    "B",     # Bugbear
+    "C4",    # Flake8-comprehensions
+    "C90",   # McCabe complexity
+    "COM",   # Flake8-Commas
+    "D",     # pydocstyle
+    "E",     # pycodestyle errors
+    "EM",    # Flake8-Errmsg
+    "F",     # Pyflakes
+    "FAST",  # FastAPI
+    "FBT",   # Flake8-boolean-trap
+    "FURB",  # Refurb
+    "I",     # Import conventions
+    "ICN",   # Flake8-import-conventions
+    "ISC",   # Flake8-import-conventions
+    "N",     # Pep8-naming
+    "PERF",  # Perflint
+    "PIE",   # Flake8-pie
+    "PL",    # Pylint
+    "PTH",   # Flake8-Use-Pathlib
+    "Q",     # Flake8-Quotes
+    "RSE",   # Flake8-raise
+    "RUF",   # Ruff specific rules
+    "S",     # Flake8-Bandit
+    "SIM",   # Flake8-Simplify
+    "T20",   # Flake8-Print
+    "UP",    # Pyupgrade
+    "W",     # pycodestyle warnings
+]
+
+extend-safe-fixes = [
+    "D", # pydocstyle
+]
+extend-unsafe-fixes = []
+fixable = ["ALL"]
+unfixable = [
+    "T201", # `print` statement found
+    "T203", # `pprint` statement found
+]
+
+# Allow unused variables when underscore-prefixed.
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+[format]
+# Allow fix for all enabled rules (when `--fix`) is provided.
+# Like Black, use double quotes for strings.
+quote-style = "double"
+
+# Like Black, indent with spaces, rather than tabs.
+indent-style = "space"
+
+# Like Black, respect magic trailing commas.
+skip-magic-trailing-comma = false
+
+# Like Black, automatically detect the appropriate line ending.
+line-ending = "auto"
+
+# Enable auto-formatting of code examples in docstrings. Markdown,
+# reStructuredText code/literal blocks and doctests are all supported.
+#
+# This is currently disabled by default, but it is planned for this
+# to be opt-out in the future.
+docstring-code-format = true
+
+# Set the line length limit used when formatting code snippets in
+# docstrings.
+#
+# This only has an effect when the `docstring-code-format` setting is
+# enabled.
+docstring-code-line-length = "dynamic"
