@@ -23,7 +23,7 @@ uv tool install copier
 From anywhere, run:
 
 ```bash
-copier copy https://github.com/software-koppeling/software-koppeling-connector-template my-connector
+copier copy https://github.com/software-koppeling/software-koppeling-connector-template .
 ```
 
 Copier will ask for:
