@@ -1,0 +1,25 @@
+_min_copier_version: "9.0.0"
+
+package_name:
+  type: str
+  help: "Project name for pyproject.toml (e.g. software-koppeling-connector-foo)."
+
+package_description:
+  type: str
+  default: "Connector package for software-koppeling."
+
+version:
+  type: str
+  default: "0.1.0"
+
+author_name:
+  type: str
+  default: "MichaelPHolstein"
+
+author_email:
+  type: str
+  default: "holsteinmp@gmail.com"
+
+python_requires:
+  type: str
+  default: ">=3.12"
