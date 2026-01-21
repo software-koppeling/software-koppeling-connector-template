@@ -1,0 +1,18 @@
+name: Configure netrc for private repo
+description: Create ~/.netrc entry for repo.software-koppeling.nl using provided credentials.
+inputs:
+  username:
+    description: Username for repo.software-koppeling.nl
+    required: true
+  password:
+    description: Password/token for repo.software-koppeling.nl
+    required: true
+runs:
+  using: composite
+  steps:
+    - name: Write ~/.netrc
+      shell: bash
+      run: |
+        printf 'machine repo.software-koppeling.nl\n  login %s\n  password %s\n' \
+          "${{ inputs.username }}" "${{ inputs.password }}" >> ~/.netrc
+        chmod 600 ~/.netrc
