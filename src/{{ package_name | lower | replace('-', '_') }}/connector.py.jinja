@@ -1,0 +1,10 @@
+from software_koppeling_connector_base import {{ connector_interface }}
+from {{ package_name | lower | replace('-', '_') }}.metadata import META_DATA
+from {{ package_name | lower | replace('-', '_') }}.auth_params_schema import AuthParamsSchema
+from {{ package_name | lower | replace('-', '_') }}.conn_params_schema import ConnParamsSchema
+
+class {{ connector_class_name }}({{ connector_interface }}):
+    auth_params_schema = AuthParamsSchema
+    conn_params_schema = ConnParamsSchema
+    metadata = META_DATA
+    

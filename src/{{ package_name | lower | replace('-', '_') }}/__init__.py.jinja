@@ -1,3 +1,5 @@
-# Link connector here.
+from {{ package_name | lower | replace('-', '_') }}.connector import {{ connector_class_name }}
 
-__all__ = []
+__all__ = [
+    "{{ connector_class_name }}",
+]

@@ -1,6 +1,8 @@
 _min_copier_version: "9.0.0"
+_templates_suffix: ".jinja"
+_answers_file: ".copier-answers.yml"
 _tasks:
-- "uv sync"
+  - "uv sync"
 
 package_name:
   type: str
@@ -25,3 +27,14 @@ author_email:
 python_requires:
   type: str
   default: ">=3.12"
+
+connector_class_name:
+  type: str
+  help: "Python class name for the connector (e.g. MoneybirdConnector)."
+
+connector_interface:
+  type: str
+  default: "AccountingConnectorInterface"
+  choices:
+    - "AccountingConnectorInterface"
+    - "EcommerceConnectorInterface"
