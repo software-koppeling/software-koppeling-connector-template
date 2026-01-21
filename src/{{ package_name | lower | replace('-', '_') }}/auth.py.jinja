@@ -1,0 +1,17 @@
+from software_koppeling_connector_base import AuthInterface
+
+class {{ auth_class_name }}(AuthInterface):
+    """Deze class is verantwoordelijk voor de authenticatie van connectors."""
+
+    def __init__(self):
+        """Voeg hier connector specifieke authenticatie parameters toe."""  
+        
+    def build_oauth_url(self, state: str):
+        """Builds a oAuth URL so a user can connect with moneybird."""
+
+    def exchange_oauth_code(self, code):
+        """Exchanges a oAuth code to tokens."""
+
+    def validate_credentials(self, **kwargs):
+        """Validates the provided params."""
+        

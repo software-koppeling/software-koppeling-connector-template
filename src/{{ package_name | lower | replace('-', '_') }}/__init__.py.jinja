@@ -1,5 +1,7 @@
+from {{ package_name | lower | replace('-', '_') }}.auth import {{ auth_class_name }}
 from {{ package_name | lower | replace('-', '_') }}.connector import {{ connector_class_name }}
 
 __all__ = [
+    "{{ auth_class_name }}",
     "{{ connector_class_name }}",
 ]

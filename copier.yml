@@ -38,3 +38,7 @@ connector_interface:
   choices:
     - "AccountingConnectorInterface"
     - "EcommerceConnectorInterface"
+
+auth_class_name:
+  type: str
+  help: "Python class name for auth parameters schema (e.g. MoneybirdAuthParamsSchema)."
