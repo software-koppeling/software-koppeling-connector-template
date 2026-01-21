@@ -1,1 +1,3 @@
-"""{{ package_name }} package."""
+from {{ package_name | lower | replace('-', '_') }} import META_DATA
+
+__all__ = ["META_DATA"]

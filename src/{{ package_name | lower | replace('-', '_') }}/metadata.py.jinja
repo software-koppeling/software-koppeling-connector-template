@@ -1,0 +1,16 @@
+from software_koppeling_connector_base import (
+    MetadataSchema,
+    SoftwareNameEnum,
+    SoftwareCategoryEnum,
+    SoftwareAuthTypeEnum,
+)
+from software_koppeling_connector_base.schemas.metadata_schema import LogoSchema
+
+META_DATA = MetadataSchema(
+    name=SoftwareNameEnum.MONEYBIRD,
+    label="Moneybird",
+    category=SoftwareCategoryEnum.ACCOUNTING,
+    auth_type=SoftwareAuthTypeEnum.OAUTH2,
+    description="Boekhouding en facturatie via Moneybird.",
+    logo=LogoSchema(uri="software/logos/moneybird.svg", scale=0.45, border_color="#0057AD", background_color="#0057AD"),
+)
